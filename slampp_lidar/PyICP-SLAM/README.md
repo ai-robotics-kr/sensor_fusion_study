@@ -1,6 +1,8 @@
 # PyICP SLAM
 Full-python LiDAR SLAM.
 
+(if you find a C++ version of this repo, go to https://github.com/irapkaist/SC-LeGO-LOAM)
+
 ### Purpose
 - Full-python LiDAR SLAM
     - Easy to exchange or connect with any Python-based components (e.g., DL front-ends such as [Deep Odometry](https://www.youtube.com/watch?v=Y2s08dv-Mq0))
@@ -32,6 +34,7 @@ Full-python LiDAR SLAM.
 - Time costs
     - (Here, no accelerated and naive) ICP gets 7-10 Hz for randomly downsampled points (7000 points)
     - (Here, no accelerated and naive) Scan Context gets 1-2 Hz (when 10 ringkey candidates).
+        - if you need the more faster one, consider the C++ version of Scan Context (e.g., https://github.com/irapkaist/SC-LeGO-LOAM)
     - miniSAM is enough fast.
 
 
@@ -88,6 +91,8 @@ Those results are for the study to understand when is the algorithm works or not
 
 - If the loop threshold is high (0.20 in the below figure), false loops are detected and thus the graph optimization failed.
     - <img src="docs/fig/08_7000_020_fail.gif" width="300">
+    - but using this non-conservative threshold with a robust kernel would be a solution.
+        - see https://github.com/irapkaist/SC-LeGO-LOAM/blob/3170ba1de7bb0d3f8de5192742e0bbe267415ab4/SC-LeGO-LOAM/LeGO-LOAM/src/mapOptmization.cpp#L994
 
 
 

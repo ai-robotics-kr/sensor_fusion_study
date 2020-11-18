@@ -32,8 +32,8 @@ parser.add_argument('--try_gap_loop_detection', type=int, default=10) # same as 
 parser.add_argument('--loop_threshold', type=float, default=0.11) # 0.11 is usually safe (for avoiding false loop closure)
 
 parser.add_argument('--data_base_dir', type=str, 
-                    default='/home/swimming/Documents/Dev/Robotics/KITTI_Dataset/2011_09_26/2011_09_26_drive_0027_sync/velodyne_points/data')
-parser.add_argument('--sequence_idx', type=str, default='')
+                    default='/your/path/.../data_odometry_velodyne/dataset/sequences')
+parser.add_argument('--sequence_idx', type=str, default='00')
 
 parser.add_argument('--save_gap', type=int, default=300)
 
@@ -41,7 +41,7 @@ args = parser.parse_args()
 
 
 # dataset 
-sequence_dir = os.path.join(args.data_base_dir, args.sequence_idx, '')
+sequence_dir = os.path.join(args.data_base_dir, args.sequence_idx, 'velodyne')
 sequence_manager = Ptutils.KittiScanDirManager(sequence_dir)
 scan_paths = sequence_manager.scan_fullpaths
 num_frames = len(scan_paths)

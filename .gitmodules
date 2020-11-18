@@ -1,0 +1,4 @@
+[submodule "slampp_lidar/PyICP-SLAM"]
+	path = slampp_lidar/PyICP-SLAM
+	url = https://github.com/gisbi-kim/PyICP-SLAM
+	branch = master
