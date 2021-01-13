@@ -33,20 +33,29 @@ class HInfinityFilter:
     def k_predict(self, u):
         self.x = np.dot(self.F, self.x) + np.dot(self.B, u)
         self.P = np.dot(np.dot(self.F, self.P), self.F.T) + self.Q
-        return self.x
+        #return self.x
 
     def k_update(self, z):
-        nu = z - np.dot(self.H, self.x)  # residual
-        S = self.R + np.dot(self.H, np.dot(self.P, self.H.T))
+        I = np.eye(self.n)
+        nu = z - np.dot(self.H, self.x) # residual
+        S = self.R + np.dot(self.H, np.dot(self.P, self.H.T)) # covariance of the Innovation
         K = np.dot(np.dot(self.P, self.H.T), np.linalg.inv(S))  # kalman gain
         self.x = self.x + np.dot(K, nu)  # stat update
-        I = np.eye(self.n)
-        self.P = np.dot(np.dot(I - np.dot(K, self.H), self.P), (I - np.dot(K, self.H)).T) + np.dot(np.dot(K, self.R),
+        self.P = np.dot(np.dot(I - np.dot(K, self.H), self.P), (I - np.dot(K, self.H)).T) + np.dot(np.dot(K, self.R)
 
     def h_predict(self, u):
-        ##
+        self.x = np.dot(self.F, self.x) + np.dot(self.B, u)
+        self.P = np.dot(np.dot(self.F, self.P), self.F.T) + self.Q
+        #return self.x # not sure
 
-    def h_update(self, z):
+    def h_update(self, u, z):
+        I = np.eye(self.n)
+        nu = z - np.dot(self.H, self.x)
+        L = inv(I - np.dot(np.dot(self.gamma, self.Q), self.P) + np.dot(np.dot(np.dot(self.H.T,inv(self.R_sqrt)), self.H), self.P))
+        K = np.dot(np.dot(np.dot(np.dot(self.F, self.P), L), self.H.T), inv(self.R_sqrt))
+        self.P = np.dot(np.dot(np.dot(self.F, self.P), L), self.F.T) + self.Q_sqrt
+        self.x =np.dot(self.x, self.x) + np.dot(self.H, u) + np.dot(K, nu)
+
 
 def define_problem():
     head_ang = m.pi/3
