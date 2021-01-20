@@ -1,2 +1,0 @@
-## SLAM++ Lidar Team 
-
