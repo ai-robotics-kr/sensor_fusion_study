@@ -6,3 +6,9 @@
 	path = PyICP-SLAM
 	url = https://github.com/gisbi-kim/PyICP-SLAM
 	branch = master
+[submodule "minisam"]
+	path = minisam
+	url = https://github.com/dongjing3309/minisam.git
+	branch = master
+
+
