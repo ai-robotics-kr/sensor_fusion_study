@@ -2,3 +2,11 @@
 	path = slampp_lidar/PyICP-SLAM
 	url = https://github.com/gisbi-kim/PyICP-SLAM
 	branch = master
+[submodule "scancontext"]
+	path = scancontext
+	url = https://github.com/irapkaist/scancontext.git
+	branch = master
+[submodule "PyICP-SLAM"]
+	path = PyICP-SLAM
+	url = https://github.com/gisbi-kim/PyICP-SLAM
+	branch = master
