@@ -1,7 +1,9 @@
 
 # ScanContext - Python Example 
 
----
+All this examples based on original scancontext Repo
+
+> Github Link : [`irapkaist/scancontext/python`](https://github.com/irapkaist/scancontext/tree/73908edbaf196b95edc4e71eae6a68d7f8857516/python)
 
 ## Folder Structure
 
@@ -30,7 +32,7 @@ During codes, There's an option to show rough shape of it. Here's an image for t
     <img src="./result/ptcloud_filtered.png" width="500">
 </p>
 
-`result` folder also contains **SC** images with various resolutions.
+And, `result` folder also contains **SC** images with various resolutions.
 
 <p align="center">
     <img src="./result/sc_multires.png" width="300">
@@ -55,4 +57,12 @@ $ pip install -r requirements.txt
 $ python3 make_sc_example.py
 # or 
 $ python3 Distance_SC.py
+```
+
+## Code Explanation
+
+1. **make_sc_example.py**
+
+```python
+
 ```
