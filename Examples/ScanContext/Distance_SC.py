@@ -83,4 +83,3 @@ if __name__ == "__main__":
     dist_1a_1b = distance_sc(sc_1a, sc_1a)
     print("--------------------")
     print(dist_1a_1b)
-
