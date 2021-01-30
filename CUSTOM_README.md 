@@ -1,0 +1,9 @@
+
+```bash
+$ git clone https://github.com/ai-robotics-kr/sensor_fusion_study.git
+$ cd sensor_fusion_study 
+$ git checkout slampp_team
+
+# pull submodules locally
+$ git submodule update --init --recursive
+```
