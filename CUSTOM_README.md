@@ -117,7 +117,7 @@ num_frames = len(scan_paths)
 The following packages must be installed in your **Python environment**:
 
 ```bash
-$ pip install numpy tqdm scipy matplotlib sklearn 
+$ pip install numpy tqdm scipy matplotlib sklearn easydict
 ```
 
 Let's install `ffmpeg` when the following error occurs during `sklearn` installation.
