@@ -9,6 +9,7 @@ The graph strcuture is shown:
         x5 - x4 
 """
 
+# from __future__ module => for python 2
 from __future__ import print_function
 
 from minisam import *
