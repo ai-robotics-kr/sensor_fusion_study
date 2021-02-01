@@ -20,25 +20,25 @@ import utils.UtilsPointcloud as Ptutils
 import utils.ICP as ICP
 
 
-# params
-parser = argparse.ArgumentParser(description='PyICP SLAM arguments')
+# # params
+# parser = argparse.ArgumentParser(description='PyICP SLAM arguments')
 
-parser.add_argument('--num_icp_points', type=int, default=5000) # 5000 is enough for real time
+# parser.add_argument('--num_icp_points', type=int, default=5000) # 5000 is enough for real time
 
-parser.add_argument('--num_rings', type=int, default=20) # same as the original paper
-parser.add_argument('--num_sectors', type=int, default=60) # same as the original paper
-parser.add_argument('--num_candidates', type=int, default=10) # must be int
-parser.add_argument('--try_gap_loop_detection', type=int, default=10) # same as the original paper
+# parser.add_argument('--num_rings', type=int, default=20) # same as the original paper
+# parser.add_argument('--num_sectors', type=int, default=60) # same as the original paper
+# parser.add_argument('--num_candidates', type=int, default=10) # must be int
+# parser.add_argument('--try_gap_loop_detection', type=int, default=10) # same as the original paper
 
-parser.add_argument('--loop_threshold', type=float, default=0.11) # 0.11 is usually safe (for avoiding false loop closure)
+# parser.add_argument('--loop_threshold', type=float, default=0.11) # 0.11 is usually safe (for avoiding false loop closure)
 
-parser.add_argument('--data_base_dir', type=str, 
-                    default='/media/swimming/Seagate SDD/Data/KITTI/dataset/sequences')
-parser.add_argument('--sequence_idx', type=str, default='01')
+# parser.add_argument('--data_base_dir', type=str, 
+#                     default='/home/swimming/Documents/Dev/Robotics/KITTI_Dataset')
+# parser.add_argument('--sequence_idx', type=str, default='00')
 
-parser.add_argument('--save_gap', type=int, default=300)
+# parser.add_argument('--save_gap', type=int, default=300)
 
-args = parser.parse_args()
+# args = parser.parse_args()
 
 from easydict import EasyDict as edict
 
@@ -53,7 +53,7 @@ ed_args = edict(
     }
 )
 
-ed_args.data_base_dir = "/media/swimming/Seagate SDD/Data/KITTI/dataset/sequences"
+ed_args.data_base_dir = "/home/swimming/Documents/Dev/Robotics/KITTI_Dataset"
 ed_args.sequence_idx = "00"
 ed_args.save_gap = 300
 
@@ -91,9 +91,6 @@ num_frames_to_skip_to_show = 5
 num_frames_to_save = np.floor(num_frames/num_frames_to_skip_to_show)
 
 def main():
-    graphviz = GraphvizOutput()
-    graphviz.output_file = 'basic2.png'
-
     with writer.saving(fig, video_name, num_frames_to_save): # this video saving part is optional
         # @@@ MAIN @@@: data stream
         for for_idx, scan_path in tqdm(enumerate(scan_paths), total=num_frames, mininterval=5.0):
