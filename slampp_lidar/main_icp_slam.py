@@ -19,8 +19,6 @@ from utils.UtilsMisc import *
 import utils.UtilsPointcloud as Ptutils
 import utils.ICP as ICP
 
-from pycallgraph import PyCallGraph
-from pycallgraph.output import GraphvizOutput
 
 # params
 parser = argparse.ArgumentParser(description='PyICP SLAM arguments')
@@ -96,8 +94,7 @@ def main():
     graphviz = GraphvizOutput()
     graphviz.output_file = 'basic2.png'
 
-    with PyCallGraph(output=graphviz):
-    # with writer.saving(fig, video_name, num_frames_to_save): # this video saving part is optional
+    with writer.saving(fig, video_name, num_frames_to_save): # this video saving part is optional
         # @@@ MAIN @@@: data stream
         for for_idx, scan_path in tqdm(enumerate(scan_paths), total=num_frames, mininterval=5.0):
 
