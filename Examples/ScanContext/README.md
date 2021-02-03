@@ -219,5 +219,5 @@ def distance_sc(sc1, sc2):
     return dist
 ```
 
-Traversing ScanContexts, and Calculate their Cosine Similarity. That's it!!
+Traversing `ScanContexts`, and Calculate their `Cosine Similarity`. That's it!!
 
