@@ -76,17 +76,24 @@ $ sudo apt-get purge ros-melodic-sophus
 ## Build Again!!
 
 - Or it can be built without sophus, which can lead to the following error.
+* `setup_no_sophus.py.in` Syntax errors can occur in this file.
 
 ![](https://user-images.githubusercontent.com/12381733/106414201-660a8b00-648f-11eb-8f2e-5322df6dd6fb.png)
 
 
-`setup_no_sophus.py.in` Syntax errors can occur in this file.
-
 - Additional installation required Packages
 
 ```bash
-# libcholmod 에러 발생 시
 $ sudo apt-get install libsuitesparse-dev
+```
+
+### Clone this repo with submodules
+
+```bash
+$ git clone --recurse-submodules https://github.com/ai-robotics-kr/sensor_fusion_study.git
+
+$ cd sensor_fusion_study
+$ git submodule update --init --recursive
 ```
 
 ### Specify file location
@@ -123,24 +130,22 @@ File "/home/kimsooyoung/anaconda3/envs/ai_robo_kr/lib/python3.8/subprocess.py", 
   File "/home/kimsooyoung/anaconda3/envs/ai_robo_kr/lib/python3.8/subprocess.py", line 1702, in _execute_child
     raise child_exception_type(errno_num, err_msg, err_filename)
 FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
-```
 
-```bash
+=> resolve this error
 $ sudo apt-get install ffmpeg
 ```
 
 ## Run!!!
 
-
 ```bash
+$ cd PyICP-SLAM
 $ python3 main_icp_slam.py
 ```
 
 - When executed, the `matplotlib` screen appears with the status bar as follows:
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/12381733/106414204-660a8b00-648f-11eb-9d98-e976c0836577.png" width="450">
-</p>
+![](https://user-images.githubusercontent.com/12381733/106414204-660a8b00-648f-11eb-9d98-e976c0836577.png)
+
 
 When all tasks are completed, `mp4` files and `result` folders are created, and the `result` folder has a `pose graph image`.
 
