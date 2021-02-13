@@ -50,25 +50,18 @@ $ pip list | grep minisam
 >> minsam 0.0.0
 ```
 
-> ROS users can encounter such an errors 
+### ROS users can encounter such an errors 
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/12381733/106414198-6440c780-648f-11eb-8a23-77cdbe335cd5.png" width="450">
-</p>
+![](https://user-images.githubusercontent.com/12381733/106414198-6440c780-648f-11eb-8a23-77cdbe335cd5.png)
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/12381733/106414199-64d95e00-648f-11eb-90c1-ff7e0a4a0712.png" width="450">
-</p>
+![](https://user-images.githubusercontent.com/12381733/106414199-64d95e00-648f-11eb-90c1-ff7e0a4a0712.png)
 
+### This is a problem caused by `ros-sophus` is looking at past versions. - original issue from [stonier/sophus](https://github.com/stonier/sophus)
 
-- This is a problem caused by `ros-sophus` is looking at past versions.
-
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/12381733/106414200-6571f480-648f-11eb-8e40-53212641ed77.png" width="450">
-</p>
+![](https://user-images.githubusercontent.com/12381733/106414200-6571f480-648f-11eb-8e40-53212641ed77.png)
 
 
-* referenced from : [https://github.com/stonier/sophus](https://github.com/stonier/sophus)
+* referenced from : [https://github.com/stonier/sophus]()
 
 - It is standard to modify `cmake` to look at the newly built sophus, but the ROS package was removed because it did not know how to do it.
 
@@ -77,13 +70,15 @@ $ sudo apt-get purge ros-melodic-sophus
 # Let's install it again later. :)
 ```
 
-Build Again!!
+
+---
+
+## Build Again!!
 
 - Or it can be built without sophus, which can lead to the following error.
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/12381733/106414201-660a8b00-648f-11eb-8f2e-5322df6dd6fb.png" width="450">
-</p>
+![](https://user-images.githubusercontent.com/12381733/106414201-660a8b00-648f-11eb-8f2e-5322df6dd6fb.png)
+
 
 `setup_no_sophus.py.in` Syntax errors can occur in this file.
 
@@ -112,15 +107,15 @@ scan_paths = sequence_manager.scan_fullpaths
 num_frames = len(scan_paths)
 ```
 
-### Run!!!
+### Additional Package install
 
-The following packages must be installed in your **Python environment**:
+* The following packages must be installed in your **Python environment**:
 
 ```bash
 $ pip install numpy tqdm scipy matplotlib sklearn easydict
 ```
 
-Let's install `ffmpeg` when the following error occurs during `sklearn` installation.
+* Let's install `ffmpeg` when the following error occurs during `sklearn` installation.
 
 ```bash
 File "/home/kimsooyoung/anaconda3/envs/ai_robo_kr/lib/python3.8/subprocess.py", line 854, in __init__
@@ -130,7 +125,11 @@ File "/home/kimsooyoung/anaconda3/envs/ai_robo_kr/lib/python3.8/subprocess.py", 
 FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
 ```
 
-⇒ **sudo apt-get install ffmpeg**
+```bash
+$ sudo apt-get install ffmpeg
+```
+
+## Run!!!
 
 
 ```bash
@@ -148,8 +147,8 @@ When all tasks are completed, `mp4` files and `result` folders are created, and 
 * `PyICP` and `ScanContext` are included as **Submodules** and can be cloned to a local PC as follows:
 
 ```bash
-git submodule update --init --recursive
+$ git submodule update --init --recursive
 
 # make it to follows brand new commit
-git submodule update --remote --merge
+$ git submodule update --remote --merge
 ```
